@@ -21,8 +21,8 @@
       </div>
 
       <div class="button-container">
-        <button class="remove" @click="removeFromCart()">Remove</button>
-        <button class="add" @click="addToCart()">Add</button>
+        <button class="remove" @click="removeFromCart()">REMOVER</button>
+        <button class="add" @click="addToCart()">ADICIONAR</button>
       </div>
     </div>
   </div>
@@ -122,6 +122,10 @@ export default {
 
 .add {
   background-color: lightgreen;
+}
+
+.remove {
+  background-color: red;
 }
 
 @media (min-width: 500px) {

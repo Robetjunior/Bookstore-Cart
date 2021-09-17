@@ -1,8 +1,10 @@
 <template>
   <div class="cart-item-card" v-show="products.length">
-    <h3>TOTAL: R${{ card_total.toFixed(2) }}</h3>
+    <div class="cart">
+      <h3>TOTAL: R$ {{ card_total.toFixed(2) }}</h3>
 
-    <button class="view-product-button">Pay by Credit Card</button>
+      <button class="view-product-button">FINALIZAR A COMPRA</button>
+    </div>
   </div>
 </template>
 
@@ -21,12 +23,12 @@ export default {
 </script>
 
 <style lang="scss">
-h3 {
-  display: inline-block;
-  margin-right: 10px;
-}
+.cart {
+  justify-content: center;
 
-.cart-item-card {
-  justify-content: space-around;
+  h3 {
+    display: inline-block;
+    margin-right: 3rem;
+  }
 }
 </style>

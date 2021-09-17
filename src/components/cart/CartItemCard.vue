@@ -1,7 +1,7 @@
 <template>
   <div class="cart-item-card">
     <div class="header">
-      <table v-show="products.length">
+      <table v-show="products.length" class="content-table">
         <thead>
           <th>Descrição</th>
           <th>Quantidade</th>
@@ -12,9 +12,9 @@
           <tr v-for="book in products" :key="book.id">
             <td>{{ book.name }}</td>
             <td>{{ book.quantity }}</td>
-            <td>R${{ book.price * book.quantity }}</td>
+            <td>R${{ subTotalPrice(book.price, book.quantity).toFixed(2) }}</td>
             <td>
-              <button class="remove" @click="removeFromCart(book)">X</button>
+              <button class="removeBtn" @click="removeFromCart(book)">X</button>
             </td>
           </tr>
         </tbody>
@@ -50,6 +50,9 @@ export default {
     removeFromCart(book) {
       this.$store.commit('removeFromCart', book);
     },
+    subTotalPrice(price, quantity) {
+      return price * quantity;
+    },
   },
 };
 </script>
@@ -60,7 +63,7 @@ export default {
 }
 
 .btn {
-  background-color: #f38910; /* Green */
+  background-color: #f38910;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -87,9 +90,30 @@ export default {
   }
 }
 
-.remove {
-  border-radius: 30%;
+.removeBtn {
+  border-radius: 40%;
+  height: 50px;
   width: 60px;
   background-color: red;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9rem;
+  min-width: 650px;
+  font-size: 1.5rem;
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #fff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
 }
 </style>
