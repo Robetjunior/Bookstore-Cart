@@ -1,12 +1,8 @@
 <template>
   <div>
-    <h1>Your Cart</h1>
+    <h1>Carrinho</h1>
 
-    <CartItemCard
-      v-for="product in products"
-      :key="product.id"
-      :product="product"
-    />
+    <CartItemCard :products="products" />
 
     <CartSummaryPaymentCard :products="products" />
   </div>
@@ -17,6 +13,7 @@ import CartItemCard from '../components/cart/CartItemCard.vue';
 import CartSummaryPaymentCard from '../components/cart/CartSummaryPaymentCard.vue';
 
 export default {
+  name: 'Cart',
   components: {
     CartItemCard,
     CartSummaryPaymentCard,
@@ -36,7 +33,7 @@ export default {
   background-color: white;
   box-shadow: 0 0 5px gray;
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
   text-align: left;
 
   .header {

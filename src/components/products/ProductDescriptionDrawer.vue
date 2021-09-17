@@ -16,8 +16,8 @@
       <h3 class="text-center">${{ product.price.toFixed(2) }}</h3>
 
       <div class="card-total" v-if="product_total">
-        <h3>In Cart</h3>
-        <h4>{{ product_total }}</h4>
+        <h3>No Carrinho:</h3>
+        <h3>{{ product_total }}</h3>
       </div>
 
       <div class="button-container">
@@ -30,7 +30,10 @@
 
 <script>
 export default {
+  name: 'CartSummaryPaymentCard',
+
   props: ['product', 'active'],
+
   methods: {
     addToCart() {
       this.$store.commit('addToCart', this.product);
@@ -115,6 +118,10 @@ export default {
       cursor: pointer;
     }
   }
+}
+
+.add {
+  background-color: lightgreen;
 }
 
 @media (min-width: 500px) {
