@@ -16,6 +16,7 @@ export default {
 
   computed: {
     card_total() {
+      console.log(this.products.reduce((a, b) => a + b.price * b.quantity, 0));
       return this.products.reduce((a, b) => a + b.price * b.quantity, 0);
     },
   },
